@@ -56,8 +56,11 @@ body {
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     width: 900px;
+    max-width: 95vw;
     position: relative;
     z-index: 10;
+    max-height: 95vh;
+    overflow: hidden;
 }
 
 #click-section {
@@ -69,7 +72,7 @@ body {
     flex-basis: 60%;
     display: flex;
     flex-direction: column;
-    max-height: 80vh; /* Gesamthöhe für die Sektion */
+    max-height: 80vh; 
 }
 
 #upgrade-list {
@@ -279,4 +282,48 @@ h1, h2 {
     20% { opacity: 1; bottom: 20px; }
     80% { opacity: 1; bottom: 20px; }
     100% { opacity: 0; bottom: 0px; }
+}
+
+@media (max-width: 800px) {
+    body {
+        overflow-y: auto;
+        align-items: flex-start;
+        padding-top: 15px;
+    }
+
+    #game-container {
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        max-height: none;
+        gap: 20px;
+        padding: 15px;
+        border: none;
+        box-shadow: none;
+    }
+
+    #click-section, #upgrade-section {
+        flex-basis: auto;
+        max-height: none;
+    }
+
+    #upgrade-list {
+        overflow-y: visible;
+        padding-right: 0;
+        margin-right: 0;
+    }
+    
+    #clickable-window {
+        width: 200px;
+        height: 200px;
+        font-size: 4em;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+    
+    #stats-container {
+        font-size: 1.3em;
+    }
 }
