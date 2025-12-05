@@ -392,7 +392,18 @@ function resizeCanvas() {
 // -------------------------------------------------
 
 window.addEventListener('resize', resizeCanvas);
-clickableWindow.addEventListener('click', handleWindowClick);
+clickableWindow.addEventListener('mousedown', function (event) {
+    event.preventDefault();
+    handleWindowClick(event);
+});
+clickableWindow.addEventListener('click', function (event) {
+    event.preventDefault();
+    handleWindowClick(event);
+});
+clickableWindow.addEventListener('contextmenu', function (event) {
+    event.preventDefault();
+    handleWindowClick(event); 
+});
 resetButton.addEventListener('click', resetGame);
 languageSwitcher.addEventListener('change', handleLanguageChange);
 
